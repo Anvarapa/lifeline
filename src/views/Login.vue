@@ -2,7 +2,7 @@
   <div class="form-wrap">
     <form class="login">
       <p class="login-register">
-        don`t have an account?
+        Don`t have an account?
         <router-link class="router-link" :to="{name: 'Register'}">Register</router-link>
       </p>
       <h2>Login to Lifeline</h2>
