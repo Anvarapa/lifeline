@@ -1,6 +1,6 @@
 <template>
   <div class="form-wrap">
-    <form class="login">
+    <form class="login" @submit.prevent="handleSubmit">
       <p class="login-register">
         Don`t have an account?
         <router-link class="router-link" :to="{name: 'Register'}">Register</router-link>
@@ -8,15 +8,15 @@
       <h2>Login to Lifeline</h2>
       <div class="inputs">
         <div class="input">
-          <input type="text" placeholder="Email" v-model="email">
+          <input type="text" placeholder="user name" v-model="username">
           <email class="icon"/>
         </div>
         <div class="input">
-          <input type="password" placeholder="password" v-model="email">
+          <input type="password" placeholder="password" v-model="password">
           <password class="icon"/>
         </div>
       </div>
-      <router-link class="forgot-password" :to="{name:'ForgotPassword'}">Forgot your password</router-link>
+      <router-link class="forgot-password" :to="{name:'ForgotPassword'}">Forgot your password?</router-link>
       <button>Sign In</button>
       <div class="angle"></div>
     </form>
@@ -27,6 +27,7 @@
 <script>
 import email from '../assets/Icons/envelope-regular.svg'
 import password from '../assets/Icons/lock-alt-solid.svg'
+import axios from "axios";
 
 export default {
   name: "Login",
@@ -36,10 +37,25 @@ export default {
   },
   data() {
     return {
-      email: null,
+      username: null,
       password: null,
     }
-  }
+  },
+  methods: {
+    async handleSubmit() {
+      const response = await axios.post("auth/signin", {
+        username: this.username,
+        password: this.password,
+      });
+
+      console.log("GET token from backend:" + response.data.accessToken);
+
+      localStorage.setItem("token", response.data.accessToken);
+
+      const response2 = await axios.get("users/get/devices");
+      this.$store.dispatch("user", response2.data);
+    },
+  },
 }
 </script>
 
