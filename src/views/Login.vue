@@ -16,7 +16,7 @@
           <password class="icon"/>
         </div>
       </div>
-      <router-link class="forgot-password" :to="{name:'ForgotPassword'}">Forgot your password?</router-link>
+      <router-link class="forgot-password" :to="{name:'ForgotPassword'}">Forgot your password</router-link>
       <button>Sign In</button>
       <div class="angle"></div>
     </form>
@@ -52,8 +52,11 @@ export default {
 
       localStorage.setItem("token", response.data.accessToken);
 
+
+
       const response2 = await axios.get("users/get/devices");
       this.$store.dispatch("user", response2.data);
+      this.$router.push("/customer");
     },
   },
 }

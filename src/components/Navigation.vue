@@ -5,10 +5,14 @@
         <router-link class="header" :to="{name:'Home'}">LIFELINE</router-link>
       </div>
       <div class="nav-links">
-        <ul v-show="!mobile">
+        <ul v-show="!mobile" v-if="!user">
           <router-link class="link" :to="{name:'Home'}">Home</router-link>
           <router-link class="link" :to="{name:'Login'}">GET STARTED</router-link>
         </ul>
+        <ul v-show="!mobile" v-if="user">
+            <a href="javascript:void(0)" @click="handleClick()" class="link">logout</a>
+        </ul>
+
       </div>
     </nav>
     <menuIcon @click="toggleMobileNav" class="menu-icon" v-show="mobile"/>
@@ -25,6 +29,7 @@
 <script>
 import menuIcon from '../assets/Icons/bars-regular.svg'
 import closeMenu from '../assets/Icons/times-circle-light.svg'
+import {mapGetters} from 'vuex'
 
 export default {
   name: "navigation",
@@ -60,7 +65,15 @@ export default {
     },
     closeModal() {
       this.mobileNav = false;
+    },
+    handleClick() {
+      localStorage.removeItem('token')
+      this.$store.dispatch('user', null)
+      this.$router.push('/')
     }
+  },
+  computed:{
+    ...mapGetters(['user'])
   },
   mounted() {
     let vm = this

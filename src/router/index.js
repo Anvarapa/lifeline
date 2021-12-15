@@ -4,6 +4,7 @@ import Home from "../views/Home.vue";
 import Login from "../views/Login";
 import ForgotPassword from "../views/ForgotPassword";
 import Register from "../views/Register";
+import customer from '../views/customer'
 
 Vue.use(VueRouter);
 
@@ -14,6 +15,14 @@ const routes = [
     component: Home,
     meta:{
       title:'Home'
+    }
+  },
+  {
+    path: "/customer",
+    name: "customer",
+    component: customer,
+    meta:{
+      title:'customer'
     }
   },
   {

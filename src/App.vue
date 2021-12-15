@@ -11,7 +11,7 @@
 <script>
 import Navigation from "./components/Navigation"
 import Footer from "./components/Footer"
-
+import axios from "axios";
 
 export default {
   name: "app",
@@ -21,8 +21,16 @@ export default {
       navigation: null,
     };
   },
-  created() {
+  async created() {
     this.checkRoute();
+    if(localStorage.getItem('token') === null || localStorage.getItem('token').length === 0)
+    {
+      console.log('No token provided');
+    }else
+    {
+      const response = await axios.get('users/get/devices');
+      this.$store.dispatch('user', response.data)
+    }
   },
   mounted() {
 
