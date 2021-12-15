@@ -43,7 +43,7 @@ export default {
   },
   methods: {
     async handleSubmit() {
-      const response = await axios.post("auth/signin", {
+      const response = await axios.post("api/auth/signin", {
         username: this.username,
         password: this.password,
       });
@@ -54,7 +54,7 @@ export default {
 
 
 
-      const response2 = await axios.get("users/get/devices");
+      const response2 = await axios.get("api/users/get/devices");
       this.$store.dispatch("user", response2.data);
       this.$router.push("/customer");
     },

@@ -5,7 +5,7 @@
   <div class="bottomPart">
     <div class="bottomPart_button">a</div>
     <div class="bottomPart_button">a</div>
-    <a v-for="(item) in user" :key="item.name" :href="item.domain" target="_blank" class="bottomPart_button">a</a>
+    <a v-for="(item) in user" :key="item.name" :href="'https://'+item.domain" target="_blank" class="bottomPart_button">a</a>
   </div>
 </div>
 </template>

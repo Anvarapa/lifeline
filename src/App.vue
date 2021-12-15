@@ -28,7 +28,7 @@ export default {
       console.log('No token provided');
     }else
     {
-      const response = await axios.get('users/get/devices');
+      const response = await axios.get('api/users/get/devices');
       this.$store.dispatch('user', response.data)
     }
   },
