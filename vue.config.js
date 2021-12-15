@@ -3,7 +3,9 @@ module.exports = {
       ? '/lifeline/'
       : '/'
   ,
-
+  devServer:{
+    proxy: 'https://mylifeline.tech/api/'
+  },
 
   chainWebpack: (config) => {
     const svgRule = config.module.rule("svg");

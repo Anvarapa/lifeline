@@ -28,7 +28,7 @@ export default {
   align-items: center;
   max-width: 300px;
   width: 100%;
-  padding-top: 10px;
+  padding: 100px 100px;
   -webkit-box-shadow: 0px 2px 12px 0px rgba(0,0,0,0.6);
   box-shadow: 0px 2px 12px 0px rgba(0,0,0,0.6);
   .bottomPart{
