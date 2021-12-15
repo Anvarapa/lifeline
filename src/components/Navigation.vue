@@ -7,7 +7,7 @@
       <div class="nav-links">
         <ul v-show="!mobile">
           <router-link class="link" :to="{name:'Home'}">Home</router-link>
-          <router-link class="link" :to="{name:'Login'}">GET STARTED!</router-link>
+          <router-link class="link" :to="{name:'Login'}">GET STARTED</router-link>
         </ul>
       </div>
     </nav>
@@ -16,7 +16,7 @@
       <ul class="mobile-nav" v-show="mobileNav">
         <closeMenu @click="toggleMobileNav" class="close"/>
         <router-link class="link" :to="{name:'Home'}">Home</router-link>
-        <router-link class="link" :to="{name:'Login'}">GET STARTED!</router-link>
+        <router-link class="link" :to="{name:'Login'}">GET STARTED</router-link>
       </ul>
     </transition>
   </header>
