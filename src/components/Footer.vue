@@ -28,12 +28,9 @@
           </ul>
         </div>
         <div class="col-2">
-          <ul>
+          <ul v-if="!user">
             <router-link class="link" :to="{name:'Home'}">HOME</router-link>
-            <router-link v-if="!user" class="link" :to="{name:'Login'}">
-              GET STARTED
-            </router-link>
-            <router-link v-if="user" class="link" :to="{name:'customer'}">
+            <router-link  class="link" :to="{name:'Login'}">
               GET STARTED
             </router-link>
           </ul>
