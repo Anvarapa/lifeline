@@ -4,7 +4,7 @@ module.exports = {
       : '/'
   ,
   devServer:{
-    proxy: 'https://mylifeline.tech/api/'
+    proxy: 'https://mylifeline.tech/'
   },
 
   chainWebpack: (config) => {

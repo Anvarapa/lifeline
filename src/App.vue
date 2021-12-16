@@ -19,16 +19,19 @@ export default {
   data() {
     return {
       navigation: null,
+      footerToShow: null,
     };
   },
   async created() {
     this.checkRoute();
-    if(localStorage.getItem('token') === null || localStorage.getItem('token').length === 0)
-    {
+    if (localStorage.getItem('token') === null || localStorage.getItem('token').length === 0) {
       console.log('No token provided');
-    }else
-    {
-      const response = await axios.get('users/get/devices');
+    } else {
+      const response = await axios.get('api/users/get/devices', {
+        headers: {
+          'x-access-token': localStorage.getItem('token')
+        }
+      });
       this.$store.dispatch('user', response.data)
     }
   },
@@ -40,14 +43,21 @@ export default {
       if (this.$route.name === "Login" || this.$route.name === "Register" || this.$route.name === "ForgotPassword") {
         this.navigation = true
         return
-      }
-      else {
+      } else {
         this.navigation = false
       }
+
+
+      if (this.$route.name === "customer") {
+        this.footerToShow = true
+      } else {
+        this.footerToShow = false
+      }
     },
+
   },
   watch: {
-    $route(){
+    $route() {
       this.checkRoute()
     }
   },
@@ -64,10 +74,12 @@ export default {
   box-sizing: border-box;
   font-family: "Quicksand", sans-serif;
 }
-.navigation{
-position: fixed;
+
+.navigation {
+  position: fixed;
   width: 100%;
 }
+
 .app {
   display: flex;
   flex-direction: column;
@@ -85,9 +97,10 @@ position: fixed;
   text-transform: uppercase;
   color: black;
 }
+
 button,
-.router-button{
-transition: 500ms ease all;
+.router-button {
+  transition: 500ms ease all;
   cursor: pointer;
   margin-top: 24px;
   padding: 12px 24px;
@@ -96,21 +109,25 @@ transition: 500ms ease all;
   border-radius: 20px;
   border: none;
   text-transform: uppercase;
-  &:focus{
+
+  &:focus {
     outline: none;
   }
 }
+
 .link-light {
   color: #fff;
 }
-.blog-card-wrap{
+
+.blog-card-wrap {
   position: relative;
   padding: 80px 16px;
 
   @media (min-width: 500px) {
     padding: 100px 16px;
   }
-  .blog-cards{
+
+  .blog-cards {
     display: grid;
     gap: 32px;
     grid-template-columns: 1fr;
