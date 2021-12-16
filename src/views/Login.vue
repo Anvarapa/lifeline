@@ -1,10 +1,7 @@
 <template>
   <div class="form-wrap">
     <form class="login" @submit.prevent="handleSubmit">
-      <p class="login-register">
-        Don`t have an account?
-        <router-link class="router-link" :to="{name: 'Register'}">Register</router-link>
-      </p>
+
       <h2>Login to Lifeline</h2>
       <div class="inputs">
         <div class="input">
@@ -16,6 +13,10 @@
           <password class="icon"/>
         </div>
       </div>
+      <p class="login-register">
+        Don`t have an account?
+        <router-link class="router-link" :to="{name: 'Register'}">Register</router-link>
+      </p>
       <router-link class="forgot-password" :to="{name:'ForgotPassword'}">Forgot your password</router-link>
       <button>Sign In</button>
       <div class="angle"></div>
@@ -79,7 +80,7 @@ export default {
   }
 
   .login-register {
-    margin-bottom: 32px;
+    margin: 20px 20px;
 
     .router-link {
       color: #000;
@@ -138,7 +139,7 @@ export default {
       color: #000;
       cursor: pointer;
       font-size: 14px;
-      margin: 16px 0 32px;
+      margin:0px 0px;
       border-bottom: 1px solid transparent;
       transition: 0.5s ease all;
       &:hover{
@@ -148,7 +149,7 @@ export default {
     .angle{
     display: none;
       position: absolute;
-      background-color: #fff;
+      background-color: #e9e8e8;
       transform: rotateZ(3deg);
       width: 60px;
       right: -30px;

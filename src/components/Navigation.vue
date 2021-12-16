@@ -6,12 +6,9 @@
       </div>
       <div class="nav-links">
         <ul v-show="!mobile" v-if="!user">
-          <router-link class="link" :to="{name:'Home'}">Home</router-link>
           <router-link class="link" :to="{name:'Login'}">GET STARTED</router-link>
         </ul>
         <ul v-show="!mobile" v-if="user">
-          <router-link class="link" :to="{name:'Home'}">Home</router-link>
-          <router-link class="link" :to="{name:'customer'}">GET STARTED</router-link>
           <a href="javascript:void(0)" @click="handleClick()" class="link">logout</a>
         </ul>
 
@@ -21,13 +18,11 @@
     <transition name="mobile-nav">
       <ul class="mobile-nav" v-show="mobileNav" v-if="!user" >
         <closeMenu @click="toggleMobileNav" class="close"/>
-        <router-link class="link" :to="{name:'Home'}">Home</router-link>
         <router-link class="link" :to="{name:'Login'}">GET STARTED</router-link>
       </ul>
       <ul class="mobile-nav" v-show="mobileNav" v-if="user" >
         <closeMenu @click="toggleMobileNav" class="close"/>
         <router-link class="link" :to="{name:'Home'}">Home</router-link>
-        <router-link class="link" :to="{name:'customer'}">GET STARTED</router-link>
         <a href="javascript:void(0)" @click="handleClick()" class="link">logout</a>
       </ul>
     </transition>

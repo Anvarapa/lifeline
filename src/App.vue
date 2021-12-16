@@ -3,7 +3,7 @@
     <div class="app">
       <Navigation class="navigation" v-show="!navigation"/>
       <router-view/>
-      <Footer v-show="!navigation"/>
+      <Footer v-show="!navigation && !footerToShow"/>
     </div>
   </div>
 </template>
@@ -24,6 +24,7 @@ export default {
   },
   async created() {
     this.checkRoute();
+
     if (localStorage.getItem('token') === null || localStorage.getItem('token').length === 0) {
       console.log('No token provided');
     } else {
@@ -46,14 +47,14 @@ export default {
       } else {
         this.navigation = false
       }
-
-
-      if (this.$route.name === "customer") {
+      if(this.$route.name === 'customer'){
         this.footerToShow = true
-      } else {
+      }
+      else {
         this.footerToShow = false
       }
     },
+
 
   },
   watch: {
@@ -73,6 +74,9 @@ export default {
   padding: 0;
   box-sizing: border-box;
   font-family: "Quicksand", sans-serif;
+}
+body{
+  background-color: #e9e8e8;
 }
 
 .navigation {

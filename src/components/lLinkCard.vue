@@ -6,7 +6,7 @@
       <div class="bottomPart_button unregister">Unregister</div>
       <div class="bottomPart_button share">Share</div>
       <a v-for="(item) in user" :key="item.name" :href="'https://'+item.domain" target="_blank"
-         class="bottomPart_button">a</a>
+         class="bottomPart_button share link_a">Open</a>
     </div>
   </div>
 </template>
@@ -24,6 +24,7 @@ export default {
 
 <style lang="scss" scoped>
 .link_card {
+  background-color: #fff;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -65,9 +66,13 @@ margin-top: 20px;
     }
 
     .share {
-      background-color: #c8c7c7;
+      background-color: #dddcdc;
       border-radius: 3px;
       font-weight: 600;
+    }
+    .link_a{
+      text-decoration: none;
+      color: black;
     }
   }
 }
