@@ -1,10 +1,6 @@
 <template>
   <div class="form-wrap">
     <form class="register" @submit.prevent="handleSubmit">
-      <p class="login-register">
-        Already have an account?
-        <router-link class="router-link" :to="{name: 'login'}">Login</router-link>
-      </p>
       <h2>Create Your LIFELINE Account</h2>
       <div class="inputs">
         <div class="input">
@@ -26,6 +22,12 @@
       </div>
       <span class="wrongPassword" v-if="validation">WRONG PASSWORD</span>
       <span class="wrongPassword" v-if="empty">not enough information</span>
+
+      <p class="login-register">
+        Already have an account?
+        <router-link class="router-link" :to="{name: 'Login'}">Login</router-link>
+      </p>
+
       <button class="register-button">Sign Up</button>
       <div class="angle"></div>
     </form>

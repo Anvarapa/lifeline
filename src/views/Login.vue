@@ -40,23 +40,25 @@ export default {
     return {
       username: null,
       password: null,
+
     }
   },
   methods: {
     async handleSubmit() {
+
       const response = await axios.post("api/auth/signin", {
         username: this.username,
         password: this.password,
       });
+
 
       console.log("GET token from backend:" + response.data.accessToken);
 
       localStorage.setItem("token", response.data.accessToken);
 
 
-
       const response2 = await axios.get("api/users/get/devices", {
-        headers:{
+        headers: {
           'x-access-token': localStorage.getItem('token')
         }
       });
@@ -108,46 +110,54 @@ export default {
         font-size: 40px;
       }
     }
-    .inputs{
+
+    .inputs {
       width: 100%;
       max-width: 350px;
-      .input{
+
+      .input {
         position: relative;
         display: flex;
         justify-content: center;
         align-items: center;
         margin-bottom: 8px;
-        input{
+
+        input {
           width: 100%;
           border: none;
           background-color: #f2f7f6;
           padding: 4px 4px 4px 30px;
           height: 50px;
-          &:focus{
+
+          &:focus {
             outline: none;
           }
         }
-        .icon{
+
+        .icon {
           width: 12px;
           position: absolute;
           left: 6px;
         }
       }
     }
-    .forgot-password{
+
+    .forgot-password {
       text-decoration: none;
       color: #000;
       cursor: pointer;
       font-size: 14px;
-      margin:0px 0px;
+      margin: 0px 0px;
       border-bottom: 1px solid transparent;
       transition: 0.5s ease all;
-      &:hover{
-      border-color: #303030;
+
+      &:hover {
+        border-color: #303030;
       }
     }
-    .angle{
-    display: none;
+
+    .angle {
+      display: none;
       position: absolute;
       background-color: #e9e8e8;
       transform: rotateZ(3deg);
@@ -159,7 +169,8 @@ export default {
       }
     }
   }
-  .background{
+
+  .background {
     display: none;
     flex: 2;
     background-size: cover;
