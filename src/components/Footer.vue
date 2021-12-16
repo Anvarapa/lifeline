@@ -3,7 +3,7 @@
     <div class="container">
       <div class="left">
         <div class="col-1">
-          <router-link class="header" :to="{name:'home'}">LIFE LINE</router-link>
+          <router-link class="header" :to="{name:'Home'}">LIFE LINE</router-link>
           <ul>
             <li>
               <a href="#">
@@ -29,9 +29,12 @@
         </div>
         <div class="col-2">
           <ul>
-            <router-link class="link" :to="{name:'home'}">HOME</router-link>
-            <router-link v-if="!user" class="link" :to="{name:'login'}">
-              Login In / Register
+            <router-link class="link" :to="{name:'Home'}">HOME</router-link>
+            <router-link v-if="!user" class="link" :to="{name:'Login'}">
+              GET STARTED
+            </router-link>
+            <router-link v-if="user" class="link" :to="{name:'customer'}">
+              GET STARTED
             </router-link>
           </ul>
         </div>
@@ -47,7 +50,8 @@
 import youTube from '../assets/Icons/youtube-brands.svg';
 import twitter from '../assets/Icons/twitter-brands.svg';
 import instagram from '../assets/Icons/instagram-brands.svg';
-import linkedin from '../assets/Icons/linkedin-brands.svg'
+import linkedin from '../assets/Icons/linkedin-brands.svg';
+import {mapGetters} from 'vuex'
 
 export default {
   name: "footer-vue",
@@ -57,16 +61,19 @@ export default {
     instagram,
     linkedin,
   },
+  computed:{
+    ...mapGetters(['user'])
+  }
 }
 </script>
 
 <style lang="scss" scoped>
 footer {
   margin-top: auto;
-  padding: 30px 25px;
+  padding: 32px 25px;
   background-color: #303030;
   @media (min-width: 800px) {
-    padding: 100px 25px;
+    padding: 40px 25px;
   }
   .container {
     display: flex;
@@ -102,6 +109,7 @@ footer {
         font-weight: 600;
         @media (min-width: 800px){
           text-align: initial;
+          margin-bottom: 10px;
         }
       }
 

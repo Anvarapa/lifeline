@@ -2,7 +2,7 @@
   <header>
     <nav class="container" ref="container">
       <div class="branding">
-        <router-link class="header" :to="{name:'Home'}">LIFELINE</router-link>
+        <router-link class="header" :to="{name:'Home'}"><img src="../assets/Icons/LL-Icons-LifeLine-Atomic.png" alt=""></router-link>
       </div>
       <div class="nav-links">
         <ul v-show="!mobile" v-if="!user">
@@ -10,17 +10,25 @@
           <router-link class="link" :to="{name:'Login'}">GET STARTED</router-link>
         </ul>
         <ul v-show="!mobile" v-if="user">
-            <a href="javascript:void(0)" @click="handleClick()" class="link">logout</a>
+          <router-link class="link" :to="{name:'Home'}">Home</router-link>
+          <router-link class="link" :to="{name:'customer'}">GET STARTED</router-link>
+          <a href="javascript:void(0)" @click="handleClick()" class="link">logout</a>
         </ul>
 
       </div>
     </nav>
     <menuIcon @click="toggleMobileNav" class="menu-icon" v-show="mobile"/>
     <transition name="mobile-nav">
-      <ul class="mobile-nav" v-show="mobileNav">
+      <ul class="mobile-nav" v-show="mobileNav" v-if="!user" >
         <closeMenu @click="toggleMobileNav" class="close"/>
         <router-link class="link" :to="{name:'Home'}">Home</router-link>
         <router-link class="link" :to="{name:'Login'}">GET STARTED</router-link>
+      </ul>
+      <ul class="mobile-nav" v-show="mobileNav" v-if="user" >
+        <closeMenu @click="toggleMobileNav" class="close"/>
+        <router-link class="link" :to="{name:'Home'}">Home</router-link>
+        <router-link class="link" :to="{name:'customer'}">GET STARTED</router-link>
+        <a href="javascript:void(0)" @click="handleClick()" class="link">logout</a>
       </ul>
     </transition>
   </header>
@@ -35,7 +43,7 @@ export default {
   name: "navigation",
   components: {
     menuIcon,
-    closeMenu
+    closeMenu,
   },
   data() {
     return {
@@ -72,7 +80,7 @@ export default {
       this.$router.push('/')
     }
   },
-  computed:{
+  computed: {
     ...mapGetters(['user'])
   },
   mounted() {
@@ -93,6 +101,7 @@ header {
   box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
   z-index: 99;
 
+
   .link {
     font-weight: 500;
     padding: 0 8px;
@@ -105,7 +114,7 @@ header {
 
   nav {
     display: flex;
-    padding: 25px 0;
+    padding: 10px 0;
 
     .branding {
       display: flex;
@@ -116,6 +125,11 @@ header {
         font-size: 24px;
         color: #2f708d;
         text-decoration: none;
+        max-width: 50px;
+        width: 100%;
+        img{
+          width: 100%;
+        }
       }
     }
 
@@ -166,6 +180,7 @@ header {
       height: 25px;
       cursor: pointer;
       align-self: flex-end;
+
       path {
         fill: #fff;
       }
