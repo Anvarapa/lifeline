@@ -57,12 +57,12 @@ export default {
       localStorage.setItem("token", response.data.accessToken);
 
 
-      const response2 = await axios.get("api/users/get/devices", {
-        headers: {
-          'x-access-token': localStorage.getItem('token')
-        }
-      });
-      this.$store.dispatch("user", response2.data);
+      // const response2 = await axios.get("api/users/get/devices", {
+      //   headers: {
+      //     'x-access-token': localStorage.getItem('token')
+      //   }
+      // });
+      // this.$store.dispatch("user", response2.data);
       this.$router.push("/customer");
     },
   },

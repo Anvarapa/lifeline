@@ -11,7 +11,7 @@
 </template>
 
 <script>
-import LinkCard from '../components/lLinkCard'
+import LinkCard from '../components/Life-lLinkCard'
 export default {
   name: "customer",
   components:{

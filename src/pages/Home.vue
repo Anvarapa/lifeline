@@ -12,7 +12,7 @@
 </template>
 
 <script>
-import BlogCards from "../components/BlogCard";
+import BlogCards from "../components/Life-BlogCard";
 
 export default {
   name: "Home",

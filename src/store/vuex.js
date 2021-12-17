@@ -13,11 +13,13 @@ const store = new Vuex.Store({
       return state.user
     }
   },
+
   actions:{
     user(context, user){
       context.commit('user', user)
     }
   },
+
   mutations:{
     user(state, user){
       state.user = user

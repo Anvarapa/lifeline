@@ -1,10 +1,10 @@
 import Vue from "vue";
 import VueRouter from "vue-router";
-import Home from "../views/Home.vue";
-import Login from "../views/Login";
-import ForgotPassword from "../views/ForgotPassword";
-import Register from "../views/Register";
-import customer from '../views/customer'
+import Home from "../pages/Home.vue";
+import Login from "../pages/Login";
+import ForgotPassword from "../pages/ForgotPassword";
+import Register from "../pages/Register";
+import customer from '../pages/customer'
 
 Vue.use(VueRouter);
 

@@ -9,8 +9,8 @@
 </template>
 
 <script>
-import Navigation from "./components/Navigation"
-import Footer from "./components/Footer"
+import Navigation from "./components/Life-Navigation"
+import Footer from "./components/Life-Footer"
 import axios from "axios";
 
 export default {

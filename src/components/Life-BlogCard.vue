@@ -42,7 +42,7 @@ export default {
 .card_img{
   max-width: 200px;
   width: 100%;
-  background-color: #fff;
+
   img{
     width: 100%;
   }
