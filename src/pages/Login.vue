@@ -9,8 +9,8 @@
           <email class="icon"/>
         </div>
         <div class="input">
-          <input type="password" placeholder="password" v-model="password">
-          <password class="icon"/>
+          <input :type="showPassword" placeholder="password" v-model="password">
+          <password @click="showP" class="icon showPassword"/>
         </div>
       </div>
       <p class="login-register">
@@ -40,10 +40,19 @@ export default {
     return {
       username: null,
       password: null,
+      showPassword:'password'
 
     }
   },
   methods: {
+    showP(){
+      if(this.showPassword === 'password'){
+        this.showPassword = 'text'
+      }
+      else if(this.showPassword === 'text'){
+        this.showPassword = 'password'
+      }
+    },
     async handleSubmit() {
 
       const response = await axios.post("api/auth/signin", {
@@ -138,6 +147,10 @@ export default {
           width: 12px;
           position: absolute;
           left: 6px;
+
+        }
+        .showPassword{
+          cursor: pointer;
         }
       }
     }

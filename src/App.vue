@@ -11,7 +11,8 @@
 <script>
 import Navigation from "./components/Life-Navigation"
 import Footer from "./components/Life-Footer"
-// import axios from "axios";
+
+
 
 export default {
   name: "app",
@@ -22,7 +23,7 @@ export default {
       footerToShow: null,
     };
   },
-  async created() {
+ created() {
     this.checkRoute();
 
   },
@@ -100,7 +101,7 @@ button,
   padding: 12px 24px;
   background-color: #303030;
   color: #fff;
-  border-radius: 20px;
+  border-radius: 10px;
   border: none;
   text-transform: uppercase;
 

@@ -4,7 +4,7 @@ module.exports = {
       : '/'
   ,
   devServer:{
-    proxy: 'https://mylifeline.tech/'
+    proxy: 'https://cors-anywhere.herokuapp.com/https://mylifeline.tech/'
   },
 
   chainWebpack: (config) => {

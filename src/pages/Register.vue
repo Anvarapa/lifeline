@@ -12,12 +12,12 @@
           <email class="icon"/>
         </div>
         <div class="input">
-          <input type="password" placeholder="password" v-model="password">
-          <password class="icon"/>
+          <input :type="showPassword" placeholder="password" v-model="password">
+          <password @click="showP" class="icon showPassword"/>
         </div>
         <div class="input">
-          <input type="password" placeholder="reaped password"  v-model="reapedPassword">
-          <password class="icon"/>
+          <input :type="showPassword" placeholder="reaped password"  v-model="reapedPassword">
+          <password @click="showP" class="icon showPassword"/>
         </div>
       </div>
       <span class="wrongPassword" v-if="validation">WRONG PASSWORD</span>
@@ -56,9 +56,18 @@ export default {
       email:null,
       password:null,
       reapedPassword:null,
+      showPassword:'password'
     }
   },
   methods: {
+    showP(){
+      if(this.showPassword === 'password'){
+        this.showPassword = 'text'
+      }
+      else if(this.showPassword === 'text'){
+        this.showPassword = 'password'
+      }
+    },
     async handleSubmit() {
       if(!this.username || !this.email || !this.password || !this.reapedPassword){
         this.empty = true
