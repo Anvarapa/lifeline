@@ -10,7 +10,6 @@
           Login/Register
           <Arrow class="arrow arrow-light"/>
         </router-link>
-
       </div>
     </div>
     <div class="blog-photo">
@@ -36,8 +35,6 @@ export default {
 .blog-wrapper {
   display: flex;
   flex-direction: column;
-
-  margin-top: 50px;
   height: 100%;
   @media (min-width: 700px) {
     flex-direction: row;

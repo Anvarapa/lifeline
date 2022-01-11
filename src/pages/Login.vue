@@ -6,7 +6,7 @@
       <div class="inputs">
         <div class="input">
           <input type="text" placeholder="user name" v-model="username">
-          <email class="icon"/>
+          <userImg class="icon"/>
         </div>
         <div class="input">
           <input :type="showPassword" placeholder="password" v-model="password">
@@ -26,14 +26,14 @@
 </template>
 
 <script>
-import email from '../assets/Icons/envelope-regular.svg'
+import userImg from '../assets/Icons/user-alt-light.svg'
 import password from '../assets/Icons/lock-alt-solid.svg'
 import axios from "axios";
 
 export default {
   name: "Login",
   components: {
-    email,
+    userImg,
     password,
   },
   data() {

@@ -13,25 +13,6 @@
           </div>
           <button class="forgot-password-button">Send</button>
         </form>
-
-<!--        <form class="reset" @submit="sendPassword">-->
-<!--          <h2 class="provide_password">provide a new password</h2>-->
-<!--          <div class="inputs">-->
-<!--            <div class="input">-->
-<!--              <input type="email" placeholder="Email">-->
-<!--              <emailImg class="icon"/>-->
-<!--            </div>-->
-<!--            <div class="input">-->
-<!--              <input type="email" placeholder="Code">-->
-<!--              <passwordImg class="icon"/>-->
-<!--            </div>-->
-<!--            <div class="input">-->
-<!--              <input :type="showPassword" placeholder="Password">-->
-<!--              <passwordImg @click="showP" class="icon showPassword"/>-->
-<!--            </div>-->
-<!--          </div>-->
-<!--          <button class="forgot-password-button">Send</button>-->
-<!--        </form>-->
       </div>
 
       <div class="background"></div>
@@ -65,24 +46,9 @@ export default {
       });
       this.email = ''
       console.log(response)
+      this.$router.push('reset-password')
     },
-    // async sendPassword() {
-    //   const response = await axios.post('api/users/reset', {
-    //     code: this.password_confirm,
-    //     password: this.password,
-    //   });
-    //   this.email = ''
-    //   this.password_confirm = ''
-    //   this.password = ''
-    //   console.log(response)
-    // },
-    showP() {
-      if (this.showPassword === 'password') {
-        this.showPassword = 'text'
-      } else if (this.showPassword === 'text') {
-        this.showPassword = 'password'
-      }
-    }
+
   }
 }
 </script>

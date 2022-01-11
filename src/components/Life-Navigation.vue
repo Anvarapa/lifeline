@@ -2,7 +2,7 @@
   <header>
     <nav class="container" ref="container">
       <div class="branding">
-        <router-link class="header" :to="{name:'Home'}"><img src="../assets/Icons/LL-Icons-LifeLine-Atomic.png" alt=""></router-link>
+        <router-link class="header" :to="{name:'Home'}">ICON_LL </router-link>
       </div>
       <div class="nav-links">
         <ul v-show="!mobile" v-if="!user">
@@ -152,7 +152,7 @@ header {
   .menu-icon {
     cursor: pointer;
     position: absolute;
-    top: 32px;
+    top: 15px;
     right: 25px;
     height: 25px;
     width: auto;

@@ -11,6 +11,7 @@
 <script>
 import Navigation from "./components/Life-Navigation"
 import Footer from "./components/Life-Footer"
+import axios from "axios";
 
 
 
@@ -23,16 +24,29 @@ export default {
       footerToShow: null,
     };
   },
- created() {
+ // created() {
+ //
+ //
+ //  },
+  async created(){
     this.checkRoute();
-
+    if (localStorage.getItem('token') === null || localStorage.getItem('token').length === 0) {
+      console.log('No token provided');
+    } else {
+      const response = await axios.get('api/users/get/devices', {
+        headers: {
+          'x-access-token': localStorage.getItem('token')
+        }
+      });
+      this.$store.dispatch('user', response.data)
+    }
   },
   mounted() {
 
   },
   methods: {
     checkRoute() {
-      if (this.$route.name === "Login" || this.$route.name === "Register" || this.$route.name === "ForgotPassword") {
+      if (this.$route.name === "Login" || this.$route.name === "Register" || this.$route.name === "ForgotPassword" || this.$route.name === 'ResetPassword') {
         this.navigation = true
         return
       } else {

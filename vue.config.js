@@ -3,9 +3,9 @@ module.exports = {
       ? '/lifeline/'
       : '/'
   ,
-  devServer:{
-    proxy: 'https://cors-anywhere.herokuapp.com/https://mylifeline.tech/'
-  },
+  // devServer:{
+  //   proxy: 'https://mylifeline.tech/'
+  // },
 
   chainWebpack: (config) => {
     const svgRule = config.module.rule("svg");
